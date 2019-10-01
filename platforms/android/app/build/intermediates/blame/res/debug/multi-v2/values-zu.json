@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\cordova\\finalprojectrevised\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zu\\values-zu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\nevadaspc\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.4.0.aar\\535c55c85542a480e12a25414a1a11a9\\res\\values-zu\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "329,442,650,787,919,1148,1384,1515,1654,1899,2027,2139,2335,2468,2685,2824,3011,3102,3201",
+                        "endColumns": "112,207,136,131,228,235,130,138,244,127,111,195,132,216,138,186,90,98,113",
+                        "endOffsets": "437,645,782,914,1143,1379,1510,1649,1894,2022,2134,2330,2463,2680,2819,3006,3097,3196,3310"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,218,426,563,695,924,1160,1291,1661,1906,2034,2146,2342,2475,2692,2831,3018,3109,3208",
+                        "endColumns": "112,207,136,131,228,235,130,138,244,127,111,195,132,216,138,186,90,98,113",
+                        "endOffsets": "213,421,558,690,919,1155,1286,1425,1901,2029,2141,2337,2470,2687,2826,3013,3104,3203,3317"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\nevadaspc\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-9.4.0.aar\\6f187123e9be8ae142be332d6aa00099\\res\\values-zu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "331",
+                        "endColumns": "230",
+                        "endOffsets": "557"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1430",
+                        "endColumns": "230",
+                        "endOffsets": "1656"
+                    }
+                }
+            ]
+        }
+    ]
+}

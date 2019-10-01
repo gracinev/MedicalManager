@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <script src="js/jquery/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <link href="js/jquery-mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-mobile/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <title>Medical Manager</title>
+
+    <style type="text/css">
+        .ui-page {
+            background: url("./img/cactus.jpg");
+            background-size: 100% 100%;
+            color: white;
+            font-weight: lighter;
+        }
+
+        #buttons {
+            margin-top: 100px;
+        }
+
+        .ui-page#home .ui-btn{
+            background: #545f75;
+            color: white;
+            font-weight: lighter;
+            font-size: 20px;
+            border: none;
+            margin: 30px;
+        }
+
+        .ui-page#create .ui-content .ui-btn {
+            background: #545f75;
+            color: white;
+            font-weight: lighter;
+            font-size: 20px;
+            border: none;
+            margin-top: 50px;
+        }
+
+        .ui-page#check .ui-content {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div data-role="page" id="home">
+    <div id="buttons">
+    <a href="#create" data-role="button" class="my-btn">Create Appointment</a>
+    <a href="#viewAppts" id="viewAllAppts" data-role="button" class="my-btn">Manage Current Appointment</a>
+    <a href="#check" data-role="button" class="my-btn">Check Wait Times</a>
+
+    </div>
+</div>
+<div data-role="page" id="create">
+    <div data-role="header">
+        <h1>Create an Appointment</h1>
+        <a href="#home" data-role="back">Back</a>
+    </div>
+    <div data-role="content">
+        <form id="patientForm" action="#" method="post">
+            <div class="ui-field-contain">
+                <label for="name">Full Name</label>
+                <input data-corners="true" type="text" id="name" name="name">
+                <p class="red" id="nameError" style="display: none;"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="OHIP">OHIP</label>
+                <input data-corners="true" type="text" id="OHIP" name="OHIP">
+                <div>
+                    <p id="OHIPerror" style="{display: none}"></p>
+                    <p id="OHIPinvalid" style="display: none;"></p>
+                </div>
+            </div>
+            <div class="ui-field-contain">
+                <label for="email">Email</label>
+                <input data-corners="true" type="text" id="email" name="email">
+                <p id="emailError" style="display: none"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="address">Address</label>
+                <input data-corners="true" type="text" id="address" name="address">
+                <p id="addressError" style="display: none"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="city">City</label>
+                <input data-corners="true" type="text" id="city" name="city">
+                <p id="cityError" style="display: none"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="phoneNo">Phone Number</label>
+                <input data-corners="true" type="tel" id="phoneNo" name="phoneNo">
+                <div>
+                    <p id="phoneNoError" style="display: none"></p>
+                    <p id="phoneNoInvalid" style="display: none"></p>
+                </div>
+            </div>
+            <div class="ui-field-contain">
+                <label for="location">Location</label>
+                <input data-corners="true" type="text" id="location" name="location">
+                <p id="locationError" style="display: none"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="date">Date</label>
+                <input data-corners="true" type="date" id="date" name="date">
+                <p id="dateError" style="display: none"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="time">Time</label>
+                <input data-corners="true" type="time" id="time" name="time">
+                <p id="timeError" style="display: none"></p>
+            </div>
+            <div class="ui-field-contain">
+                <label for="note">Reason for appointment:</label>
+                <textarea data-corners="false" id="note" name="note"></textarea>
+            </div>
+            <div data-role="popup" id="pop" data-position-to="window" data-transition="turn"></div>
+
+            <button id="createAppointment" type="button" class="my-btn">Create Appointment</button>
+        </form>
+    </div>
+</div>
+<div data-role="page" id="viewAppts">
+    <div data-role="header">
+        <h1>Manage Current Appointments</h1>
+        <a href="#home" data-role="back">Back</a>
+    </div>
+    <div data-role="content" class="ui-content">
+        <h3>Your current appointments:</h3>
+        <ul style="margin-top: 10px" id="listviewappts" data-role="listview" data-icon="false" data-split-icon="delete">
+        </ul>
+    </div>
+</div>
+<div data-role="page" id="check">
+    <div data-role="header">
+        <h1>Check Wait Times</h1>
+        <a href="#home" type="button" data-role="back">Back</a>
+    </div>
+    <div data-role="content">
+            <label for="clinicSearch">Search for Clinic:</label>
+            <input data-corners="true" type="text" id="clinicSearch" name="clinicSearch">
+        <button id="checkWaitTimes" class="btn btn-primary">Search</button>
+        <div id="clinicInfo"></div>
+</div>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
